@@ -17,12 +17,12 @@ function isEven(num) {
         num *= -1;
     }
     if (num === 0) {
-        return console.log(true);
+        return true;
     } else if (num === 1) {
-        return console.log(false);
+        return false;
     } else {
-        isEven(num - 2);
+        return isEven(num - 2);
     }
 }
 
-isEven(15);
+console.log(isEven(-16));
