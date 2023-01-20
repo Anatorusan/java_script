@@ -55,4 +55,4 @@ function sum(array) {
     return sum;
 }
 
-console.log(sum(range(10, -20, -3)));
+console.log(sum(range(1, 10)));
