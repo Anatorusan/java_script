@@ -25,7 +25,17 @@ function reverseArray(initArray) {
     return revArray;
 }
 
-
-
-
 console.log(reverseArray([1, 2, 3, 4, 5, 6]));
+
+
+function reverseArrayInPlace(initArray) {
+    let revIndex = initArray.length * 2 - 1;
+    for (let i = initArray.length; i > 0; i--) {
+        initArray[revIndex] = initArray[0];
+        initArray.shift();
+        revIndex -= 2;
+    }
+    return initArray;
+}
+
+console.log(reverseArrayInPlace([1, 2, 3, 4, 5, 6]));
