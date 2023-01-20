@@ -39,3 +39,13 @@ function reverseArrayInPlace(initArray) {
 }
 
 console.log(reverseArrayInPlace([1, 2, 3, 4, 5, 6]));
+
+// solution from the book
+// function reverseArrayInPlace(array) {
+//     for (let i = 0; i < Math.floor(array.length / 2); i++) {
+//       let old = array[i];
+//       array[i] = array[array.length - 1 - i];
+//       array[array.length - 1 - i] = old;
+//     }
+//     return array;
+//   }
