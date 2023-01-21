@@ -31,4 +31,10 @@ function prepend(element, list) {
     return newList;
 }
 
-console.log(prepend("B", newList));
+function nth(list, num) {
+    if (!list) return undefined;
+    else if (num == 0) return list.value;
+    else return nth(list.rest, num - 1);
+}
+
+console.log(nth(newList, 12));
