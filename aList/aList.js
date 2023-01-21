@@ -7,3 +7,13 @@ element at the given position in the list (with zero referring to the first elem
 or undefined when there is no such element. If you haven’t already,
 also write a recursive version of nth.*/
 
+
+function arrayToList(array) {
+    let list = null;
+    for (let i = array.length - 1; i >= 0; i--) {
+        list = {value: array[i], rest: list}
+    }
+    return list;
+}
+
+console.log(arrayToList([1, 2, 3]));
