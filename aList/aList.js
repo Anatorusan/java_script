@@ -16,4 +16,19 @@ function arrayToList(array) {
     return list;
 }
 
-console.log(arrayToList([1, 2, 3]));
+let newList = arrayToList([1, 2, 3, 5, 6, 10]);
+
+function listToArray(list) {
+    let array = [];
+    for (let node = list; node; node = node.rest) {
+        array.push(node.value);
+    }
+    return array;
+}
+
+function prepend(element, list) {
+    let newList = {value: element, rest: list}
+    return newList;
+}
+
+console.log(prepend("B", newList));
