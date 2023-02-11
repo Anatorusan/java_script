@@ -48,13 +48,33 @@ class Matrix {
       }
     }
    
-   //make Matrix eterable
+   //make Matrix iterable
    Matrix.prototype[Symbol.iterator] = function() {
       return new MatrixIterator(this);
    };
    
    //create an instance of Matrix class sized 2 x 2
-   let matrix = new Matrix(5, 5, (x, y) => `value ${x},${y}`);
-   for (let {x, y, value} of matrix) {
-     console.log(x, y, value);
-   }
+//    let matrix = new Matrix(5, 5, (x, y) => `value ${x},${y}`);
+//    for (let {x, y, value} of matrix) {
+//      console.log(x, y, value);
+//    }
+
+//creating SummetricMatrix object, which inherits from the Matrix prototype
+class SymmetricMatrix extends Matrix {
+    constructor(size, element = (x, y) => undefined) {
+        super(size, size, (x, y) => {
+            if (x < y) return element(y, x);
+            else return element(x, y);
+        })
+    }
+
+    set(x, y, value) {
+        super.set(x, y, value);
+        if (x != y) {
+            super.set(y, x, value);
+        }
+    }
+}
+
+let matrix = new SymmetricMatrix(5, (x, y) => `${x},${y}`);
+console.log(matrix.get(2, 3));
